@@ -95,7 +95,8 @@ public class EventHandler implements RequestHandler<ScheduledEvent, String> {
     } 
  
     private List<KeyVersion> processEventsInBucket(String bucketName, LambdaLogger logger, ConcurrentHashMap<String, Pair<Long, String>> latestStatusForTrackingNumber) { 
- 
+        //create S3 client and log the bucket, then iterate across the summary to log contents
+     
         final AmazonS3 s3Client = EventHandler.getS3Client(); 
         logger.log("Processing Bucket: " + bucketName); 
  
